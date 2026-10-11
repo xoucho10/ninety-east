@@ -1,0 +1,2 @@
+import Header from "@/components/Header"; import Footer from "@/components/Footer"; import PageHero from "@/components/PageHero";
+export default function P(){return(<><Header/><PageHero title="Privacy Policy" subtitle="Your privacy matters. We only use data for bookings, no sharing." image="https://images.unsplash.com/photo-1534177616072-ef6157835bd7?q=80&w=2000" /><div className="max-w-3xl mx-auto px-6 py-12 text-[13px] leading-relaxed text-slate-700"><p>We respect your privacy. Contact hello@ninetyeastzanzibar.com for data deletion.</p></div><Footer/></>)}
