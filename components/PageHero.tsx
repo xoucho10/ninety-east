@@ -1,17 +1,17 @@
-import Link from "next/link";
-type Props = { title:string; subtitle:string; badge?:string; image:string; cta1?:{label:string; href:string}; cta2?:{label:string; href:string} }
-export default function PageHero({title, subtitle, badge="ZCT Licensed • Since 2018 • 90E", image, cta1, cta2}:Props){
+export default function PageHero({title,subtitle,image,badge,cta1,cta2}:{title:string,subtitle:string,image:string,badge?:string,cta1?:any,cta2?:any}){
   return(
-    <section className="relative h-[420px] lg:h-[480px] w-full overflow-hidden">
-      <img src={image} className="absolute inset-0 w-full h-full object-cover" alt={title}/>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10"/>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"/>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
-        <span className="bg-white/20 backdrop-blur border border-white/20 text-white text-[11px] px-4 py-1.5 rounded-full w-fit tracking-wide">{badge}</span>
-        <h1 className="mt-4 text-4xl lg:text-6xl font-black text-white leading-[0.9] max-w-3xl drop-shadow-lg">{title}</h1>
-        <p className="mt-4 text-white/90 max-w-xl text-[14px] lg:text-[15px] leading-relaxed">{subtitle}</p>
-        {(cta1||cta2)&&<div className="mt-6 flex gap-3">{cta1&&<Link href={cta1.href} className="bg-white text-black px-7 py-3 rounded-full text-sm font-bold hover:bg-slate-100">{cta1.label}</Link>}{cta2&&<Link href={cta2.href} className="bg-green-600 hover:bg-green-700 text-white px-7 py-3 rounded-full text-sm font-bold">{cta2.label}</Link>}</div>}
+    <div className="relative min-h-[70vh] sm:min-h-[75vh] flex items-center overflow-hidden bg-black">
+      <img src={image} alt={title} className="absolute inset-0 w-full h-full object-cover opacity-70"/>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20"/>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
+        {badge&&<span className="inline-block bg-white/15 backdrop-blur border border-white/20 text-white text-[10px] sm:text-[11px] px-3 sm:px-4 py-1.5 rounded-full mb-4">{badge}</span>}
+        <h1 className="text-white text-[28px] sm:text-[40px] lg:text-[52px] font-black leading-[1.05] max-w-3xl drop-shadow">{title}</h1>
+        <p className="text-white/80 mt-3 sm:mt-4 max-w-2xl text-[13px] sm:text-[15px] leading-relaxed">{subtitle}</p>
+        <div className="mt-6 sm:mt-8 flex flex-wrap gap-3">
+          {cta1&&<a href={cta1.href} className="bg-white text-black px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold hover:bg-slate-100 transition">{cta1.label}</a>}
+          {cta2&&<a href={cta2.href} className="bg-[#0a4d25] sm:bg-green-700 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold hover:bg-green-800 transition">{cta2.label}</a>}
+        </div>
       </div>
-    </section>
+    </div>
   )
 }
